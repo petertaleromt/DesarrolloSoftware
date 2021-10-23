@@ -55,7 +55,7 @@ public class MachineService {
     
      /**
      *DELETE
-     *@param machine
+     *@param id
      *@return
      */
     public String deleteMachine(int id){

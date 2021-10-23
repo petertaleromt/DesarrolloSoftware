@@ -36,6 +36,16 @@ public class CategoryService {
     public Category saveCategory(Category category) {
         return repository.save(category);
     }
+    
+    /**
+    *DELETE
+    *@param id
+    *@return
+    */
+    public String deleteCategory(int id){
+        repository.deleteById(id);
+        return "Categoria eliminada" + id;
+    }
 
    
 }
