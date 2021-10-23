@@ -35,7 +35,7 @@ public class Reservation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idReservation;
-    private Calendar starDate;
+    private Calendar startDate;
     private Calendar devolutionDate;
     private String status="created";
     
