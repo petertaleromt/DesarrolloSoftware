@@ -30,17 +30,24 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+
+/* -- Acceso Tabla Machine -- */
 @Table(name="machine")
 public class Machine implements Serializable{
    
+    /* -- Estructura Tabla - Vista -- */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(length=45)
     private String name;
+    @Column(length=45)
     private String brand;
     private Integer year;
+    @Column(length=250)
     private String description;
     
+    /* -- Joins -- */
     @ManyToOne
     @JoinColumn(name = "categoryId")    
     @JsonIgnoreProperties("machines")

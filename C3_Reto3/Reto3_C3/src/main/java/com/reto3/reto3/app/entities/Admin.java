@@ -23,9 +23,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+
+/* -- Acceso Tabla Machine -- */
 @Table(name="admin")
 public class Admin implements Serializable{
     
+    /* -- Estructura Tabla - Vista -- */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idAdmin;

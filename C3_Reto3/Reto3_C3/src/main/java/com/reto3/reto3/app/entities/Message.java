@@ -27,15 +27,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+
+/* -- Acceso Tabla Machine -- */
 @Table(name="message")
 public class Message implements Serializable{
     
+    /* -- Estructura Tabla - Vista -- */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idMessage;
     @Column(length=250)
     private String messageText;
     
+    /* -- Joins -- */
     @ManyToOne
     @JoinColumn(name="machineId")
     @JsonIgnoreProperties({"messages", "reservations"})

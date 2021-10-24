@@ -28,9 +28,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+
+/* -- Acceso Tabla Machine -- */
 @Table(name="client")
 public class Client implements Serializable{
     
+    /* -- Estructura Tabla - Vista -- */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idClient;
@@ -42,6 +45,7 @@ public class Client implements Serializable{
     private String name;
     private Integer age;
     
+    /* -- Joins -- */
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy="client")
     @JsonIgnoreProperties("client")
     private List<Message> messages;

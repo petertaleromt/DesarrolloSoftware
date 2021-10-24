@@ -29,9 +29,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+
+/* -- Acceso Tabla Machine -- */
 @Table(name="reservation")
 public class Reservation implements Serializable {
     
+    /* -- Estructura Tabla - Vista -- */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idReservation;
@@ -39,6 +42,7 @@ public class Reservation implements Serializable {
     private Calendar devolutionDate;
     private String status="created";
     
+    /* -- Joins -- */
     @ManyToOne
     @JoinColumn(name = "machineId")    
     @JsonIgnoreProperties("reservations")
