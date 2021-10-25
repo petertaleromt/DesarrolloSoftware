@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -46,9 +47,9 @@ public class AdminController {
         return ResponseEntity.status(201).build();
     }
     
-    @DeleteMapping("/delete")
-    public ResponseEntity deleteAdmin(@RequestBody Admin admin){
-        service.deleteAdmin(admin.getIdAdmin());
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteAdmin(@PathVariable("id") Integer id){
+        service.deleteAdmin(id);
         return ResponseEntity.status(204).build();
     } 
 }

@@ -52,10 +52,8 @@ public class ReservationService {
     /**
     *DELETE
     *@param id
-    *@return
     */
-    public String deleteReservation(int id){
+    public void deleteReservation(int id){
         repository.deleteById(id);
-        return "Mensaje eliminado" + id;
-    }    
+    }   
 }

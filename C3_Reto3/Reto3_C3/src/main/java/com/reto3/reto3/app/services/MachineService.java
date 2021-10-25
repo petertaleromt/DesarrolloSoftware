@@ -52,13 +52,11 @@ public class MachineService {
         return repository.save(existingMachine);
     }
     
-     /**
-     *DELETE
-     *@param id
-     *@return
-     */
-    public String deleteMachine(int id){
+    /**
+    *DELETE
+    *@param id
+    */
+    public void deleteMachine(int id){
         repository.deleteById(id);
-        return "Maquina eliminada" + id;
     }
 }

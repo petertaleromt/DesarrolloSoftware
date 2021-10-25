@@ -54,10 +54,8 @@ public class ClientService {
     /**
     *DELETE
     *@param id
-    *@return
     */
-    public String deleteClient(int id){
+    public void deleteClient(int id){
         repository.deleteById(id);
-        return "Cliente eliminado" + id;
     }
 }

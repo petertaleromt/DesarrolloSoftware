@@ -52,10 +52,8 @@ public class MessageService {
     /**
     *DELETE
     *@param id
-    *@return
     */
-    public String deleteMessage(int id){
+    public void deleteMessage(int id){
         repository.deleteById(id);
-        return "Mensaje eliminado" + id;
-    }    
+    }   
 }

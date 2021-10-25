@@ -52,10 +52,8 @@ public class AdminService {
     /**
     *DELETE
     *@param id
-    *@return
     */
-    public String deleteAdmin(int id){
+    public void deleteAdmin(int id){
         repository.deleteById(id);
-        return "Usuario eliminado" + id;
     }
 }

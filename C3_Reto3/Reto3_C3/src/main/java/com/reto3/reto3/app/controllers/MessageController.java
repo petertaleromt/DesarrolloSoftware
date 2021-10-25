@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -46,10 +47,9 @@ public class MessageController {
         return ResponseEntity.status(201).build();
     }
     
-    @DeleteMapping("/delete")
-    public ResponseEntity deleteMessage(@RequestBody Message message){
-        service.deleteMessage(message.getIdMessage());
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteMessage(@PathVariable("id") Integer id){
+        service.deleteMessage(id);
         return ResponseEntity.status(204).build();
-    }
-    
+    }    
 }

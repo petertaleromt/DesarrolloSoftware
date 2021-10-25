@@ -52,10 +52,8 @@ public class CategoryService {
     /**
     *DELETE
     *@param id
-    *@return
     */
-    public String deleteCategory(int id){
+    public void deleteCategory(int id){
         repository.deleteById(id);
-        return "Categoria eliminada" + id;
     }
 }
