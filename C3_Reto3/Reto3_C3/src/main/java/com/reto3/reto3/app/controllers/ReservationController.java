@@ -11,8 +11,10 @@ import com.reto3.reto3.app.services.ReservationService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,4 +41,15 @@ public class ReservationController {
         return ResponseEntity.status(201).build();
     }
     
+    @PutMapping("/update")
+    public ResponseEntity updateReservation(@RequestBody Reservation reservation){
+        service.updateReservation(reservation);
+        return ResponseEntity.status(201).build();
+    }
+    
+    @DeleteMapping("/delete")
+    public ResponseEntity deleteReservation(@RequestBody Reservation reservation){
+        service.deleteReservation(reservation.getIdReservation());
+        return ResponseEntity.status(204).build();
+    }
 }

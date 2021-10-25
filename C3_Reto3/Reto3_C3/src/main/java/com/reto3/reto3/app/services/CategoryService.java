@@ -38,6 +38,18 @@ public class CategoryService {
     }
     
     /**
+    *PUT
+    *@param category
+    *@return
+    */
+    public Category updateCategory(Category category) {
+        Category existingCategory = repository.findById(category.getId()).orElse(null);
+        existingCategory.setName(category.getName());
+        existingCategory.setDescription(category.getDescription());
+        return repository.save(existingCategory);
+    }
+    
+    /**
     *DELETE
     *@param id
     *@return
@@ -46,6 +58,4 @@ public class CategoryService {
         repository.deleteById(id);
         return "Categoria eliminada" + id;
     }
-
-   
 }

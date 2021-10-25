@@ -49,7 +49,6 @@ public class MachineService {
         existingMachine.setBrand(machine.getBrand());
         existingMachine.setYear(machine.getYear());
         existingMachine.setDescription(machine.getDescription());
-        existingMachine.setCategory(machine.getCategory());
         return repository.save(existingMachine);
     }
     

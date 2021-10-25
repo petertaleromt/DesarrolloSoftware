@@ -5,8 +5,8 @@
  */
 package com.reto3.reto3.app.controllers;
 
-import com.reto3.reto3.app.entities.Message;
-import com.reto3.reto3.app.services.MessageService;
+import com.reto3.reto3.app.entities.Admin;
+import com.reto3.reto3.app.services.AdminService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,33 +23,32 @@ import org.springframework.web.bind.annotation.RestController;
  * @author peter.talero
  */
 @RestController
-@RequestMapping("Message")
-public class MessageController {
+@RequestMapping("Admin")
+public class AdminController {
     
     @Autowired
-    private MessageService service;
+    private AdminService service;
     
     @GetMapping("/all")
-    public List<Message> findAllMessage(){
-        return service.getMessages();
+    public List<Admin> findAllAdmin(){
+        return service.getAdmins();
     }
     
     @PostMapping("/save")
-    public ResponseEntity addMessage(@RequestBody Message message){
-        service.saveMessage(message);
+    public ResponseEntity addAdmin(@RequestBody Admin admin){
+        service.saveAdmin(admin);
         return ResponseEntity.status(201).build();
     }
     
     @PutMapping("/update")
-    public ResponseEntity updateMessage(@RequestBody Message message){
-        service.updateMessage(message);
+    public ResponseEntity updateAdmin(@RequestBody Admin admin){
+        service.updateAdmin(admin);
         return ResponseEntity.status(201).build();
     }
     
     @DeleteMapping("/delete")
-    public ResponseEntity deleteMessage(@RequestBody Message message){
-        service.deleteMessage(message.getIdMessage());
+    public ResponseEntity deleteAdmin(@RequestBody Admin admin){
+        service.deleteAdmin(admin.getIdAdmin());
         return ResponseEntity.status(204).build();
-    }
-    
+    } 
 }

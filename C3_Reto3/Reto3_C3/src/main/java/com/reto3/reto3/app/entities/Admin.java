@@ -6,6 +6,7 @@
 package com.reto3.reto3.app.entities;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,6 +34,8 @@ public class Admin implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idAdmin;
     private String email;
+    @Column(length=45)
     private String password;
+     @Column(length=250)
     private String name;
 }

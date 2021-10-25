@@ -36,4 +36,26 @@ public class ReservationService {
     public Reservation saveReservation(Reservation reservation) {
         return repository.save(reservation);
     }
+    
+    /**
+    *PUT
+    *@param reservation
+    *@return
+    */
+    public Reservation updateReservation(Reservation reservation) {
+        Reservation existingReservation = repository.findById(reservation.getIdReservation()).orElse(null);
+        existingReservation.setStartDate(reservation.getStartDate());
+        existingReservation.setDevolutionDate(reservation.getDevolutionDate());
+        return repository.save(existingReservation);
+    }
+    
+    /**
+    *DELETE
+    *@param id
+    *@return
+    */
+    public String deleteReservation(int id){
+        repository.deleteById(id);
+        return "Mensaje eliminado" + id;
+    }    
 }

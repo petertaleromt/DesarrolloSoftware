@@ -37,4 +37,27 @@ public class ClientService {
     public Client saveClient(Client client) {
         return repository.save(client);
     }  
+    
+    /**
+    *PUT
+    *@param client
+    *@return
+    */
+    public Client updateClient(Client client) {
+        Client existingClient = repository.findById(client.getIdClient()).orElse(null);
+        existingClient.setName(client.getName());
+        existingClient.setPassword(client.getPassword());
+        existingClient.setAge(client.getAge());
+        return repository.save(existingClient);
+    }
+    
+    /**
+    *DELETE
+    *@param id
+    *@return
+    */
+    public String deleteClient(int id){
+        repository.deleteById(id);
+        return "Cliente eliminado" + id;
+    }
 }

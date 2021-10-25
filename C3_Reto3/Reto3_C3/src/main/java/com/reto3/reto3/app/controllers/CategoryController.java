@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,10 +40,15 @@ public class CategoryController {
         return ResponseEntity.status(201).build();
     }
     
+    @PutMapping("/update")
+    public ResponseEntity updateCategory(@RequestBody Category category){
+        service.updateCategory(category);
+        return ResponseEntity.status(201).build();
+    }
+    
     @DeleteMapping("/delete")
     public ResponseEntity deleteCategory(@RequestBody Category category){
         service.deleteCategory(category.getId());
         return ResponseEntity.status(204).build();
-    } 
-    
+    }  
 }

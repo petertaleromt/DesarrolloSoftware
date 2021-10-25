@@ -36,5 +36,26 @@ public class MessageService {
      */
     public Message saveMessage(Message message){
          return repository.save(message);   
+    }
+
+    /**
+    *PUT
+    *@param message
+    *@return
+    */
+    public Message updateMessage(Message message) {
+        Message existingMessage = repository.findById(message.getIdMessage()).orElse(null);
+        existingMessage.setMessageText(message.getMessageText());
+        return repository.save(existingMessage);
+    }
+    
+    /**
+    *DELETE
+    *@param id
+    *@return
+    */
+    public String deleteMessage(int id){
+        repository.deleteById(id);
+        return "Mensaje eliminado" + id;
     }    
 }

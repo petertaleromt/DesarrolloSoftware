@@ -42,7 +42,7 @@ public class MachineController {
     
     @PutMapping("/update")
     public ResponseEntity updateMachine(@RequestBody Machine machine){
-        service.saveMachine(machine);
+        service.updateMachine(machine);
         return ResponseEntity.status(201).build();
     }
     
